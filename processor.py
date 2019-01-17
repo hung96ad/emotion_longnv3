@@ -48,6 +48,10 @@ def process_image(image):
                     results.append(emotions[emotion[0]])
             except:
                 continue
+        dic_result = {
+            "emotions": results,
+            "number face": len(results) 
+        }
     except Exception as err:
         logging.error('Error in emotion processor: "{0}"'.format(err))
-    return results
+    return dic_result

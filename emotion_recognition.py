@@ -17,8 +17,8 @@ def upload():
         data = data.decode('utf8')
         data = loads(data)
         image = b64decode(data['image'])
-        emotions = process_image(image)
-        return make_response(jsonify({'result': emotions}), 200)
+        result = process_image(image)
+        return make_response(jsonify(result), 200)
     except Exception as err:
         logging.error('An error has occurred whilst processing the file: "{0}"'.format(err))
         abort(400)
